@@ -1,16 +1,28 @@
-def printer(seq: list = ['python']) -> None:
-    arg = input('Укажите аргумент(не обязательное поле):')
-    if arg != '':
-        seq = [arg]
-    while True:
-        word = input('Введите любое слово: ')
-        if word == '':
-            return seq
+def printer(seq: str) -> None:
+    if not seq:
+        words: list[str, ...] = ['python']
+    else:
+        words: list[str, ...] = [seq]
+
+    while word := input('Введите любое слово: '):
+        if word in words:
+            print(f'Строка {word} уже присутствует в '
+                  f'списке на позиции {words.index(word)}')
             break
-        elif word in seq:
-            return f'Строка {word} уже присутствует в списке на позиции {seq.index(word)}'
-            break
-        seq.append(word)
+        words.append(word)
+    else:
+        print(words)
 
 
-print(printer())
+if __name__ == '__main__':
+    arg = input('Укажите аргумент(не обязательное поле): ')
+    printer(arg)
+
+"""
+Orange
+kiwi
+django
+flask
+python
+django
+"""

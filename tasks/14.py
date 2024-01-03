@@ -1,11 +1,11 @@
-# Функция прининимает два целых чисоа и возвращает их сумму и разность
-def math_oper(a: int, b: int) -> int:
-    s = a + b
-    d = a - b
-    return s, d
+def math_oper(a: int, b: int) -> tuple[int, int]:
+    return a + b, a - b
 
 
-num1 = int(input('Введите первое целое число: '))
-num2 = int(input('Введите второе целое число: '))
-print(f'\nsumma = {(math_oper(num1, num2))[0]}'
-      f'\ndifference = {(math_oper(num1, num2))[1]}')
+if __name__ == '__main__':
+    # Функция прининимает два целых чисоа и возвращает их сумму и разность
+    num1 = int(input('Введите первое целое число: '))
+    num2 = int(input('Введите второе целое число: '))
+    summa, difference = math_oper(num1, num2)
+
+    print(f'{summa = }\n{difference = }')
